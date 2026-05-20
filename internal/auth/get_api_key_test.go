@@ -1,13 +1,13 @@
 package auth
 
-import(
+import (
 	"fmt"
 	"net/http"
 	"strings"
 	"testing"
 )
 
-func TestGetAPIKey(t *testing.T){
+func TestGetAPIKey(t *testing.T) {
 	tests := []struct {
 		key       string
 		value     string
@@ -39,7 +39,7 @@ func TestGetAPIKey(t *testing.T){
 		},
 	}
 
-	for i, test := range tests{
+	for i, test := range tests {
 		t.Run(fmt.Sprintf("TestGetAPIKey Case #%v:", i), func(t *testing.T) {
 			header := http.Header{}
 			header.Add(test.key, test.value)
