@@ -19,7 +19,7 @@ jobs:
           go-version: "1.25.1"
 
       - name: Build app
-        run: gcloud builds submit --tag us-south1-docker.pkg.dev/notely-497203/notely-ar-repo/sha256:532e184406ba0eabd8536def4f1ab1f36bc46e3e2cafc8bfc3def80c39260c0b
+        run: gcloud builds submit --tag us-south1-docker.pkg.dev/notely-497203/notely-ar-repo/sha256:717fa11b207140e92ab97a516c1ec560c98c51e6c73dfc41ea47c22acf73bd30
         
   serviceAccount:
     name: set-up gcloud
