@@ -9,6 +9,9 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
 
+    env:
+      DATABASE_URL: ${{ secrets.libsql://notely-db-kylerc.aws-us-west-2.turso.io?authToken=eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3Nzk1NzgxNTIsImlkIjoiMDE5ZTU3MTktZTQwMS03OGUxLTlkNTktZTcyYjVmNThmZTNkIiwicmlkIjoiYmFiZTFhOGMtZTJjZS00NmYxLTkzODAtZjY5Y2MyMjMwNGVmIn0.SAqXSeSyMKkEJK-qCtQJg_bRbyiWgsY66CyLu5rslcLE6eaK8pjLNCcaborvIr9uUelPvhWiRCK-MwjUycNrDQ }}
+     
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -34,6 +37,9 @@ jobs:
 
       - name: Build app
         run: gcloud builds submit --tag us-south1-docker.pkg.dev/notely-497203/notely-ar-repo/sha256:717fa11b207140e92ab97a516c1ec560c98c51e6c73dfc41ea47c22acf73bd30
+
+      - name: Build app
+        run: ./scripts/mitgrateup.sh
 
       - name: Deploy to Cloud Run
         run: gcloud run deploy notely --image us-south1-docker.pkg.dev/notely-497203/notely-ar-repo/sha256:717fa11b207140e92ab97a516c1ec560c98c51e6c73dfc41ea47c22acf73bd30 --region us-central1 --allow-unauthenticated --project notely-497203 --max-instances=4
