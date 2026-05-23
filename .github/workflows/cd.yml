@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: ${{ secrets.libsql://notely-db-kylerc.aws-us-west-2.turso.io?authToken=eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3Nzk1NzgxNTIsImlkIjoiMDE5ZTU3MTktZTQwMS03OGUxLTlkNTktZTcyYjVmNThmZTNkIiwicmlkIjoiYmFiZTFhOGMtZTJjZS00NmYxLTkzODAtZjY5Y2MyMjMwNGVmIn0.SAqXSeSyMKkEJK-qCtQJg_bRbyiWgsY66CyLu5rslcLE6eaK8pjLNCcaborvIr9uUelPvhWiRCK-MwjUycNrDQ }}
-     
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     steps:
       - name: Check out code
         uses: actions/checkout@v4
