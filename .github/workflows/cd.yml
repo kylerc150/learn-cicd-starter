@@ -33,6 +33,13 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v3'
 
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
+
+   build:
+     name: building app
+     runs-on: ubuntu-latest
+     steps:
+
       - name: Build app
         run: gcloud builds submit --tag us-south1-docker.pkg.dev/notely-497203/notely-ar-repo/sha256:717fa11b207140e92ab97a516c1ec560c98c51e6c73dfc41ea47c22acf73bd30
-        
